@@ -3,7 +3,7 @@ name: Testing Deployment
 on:
   push:
     branches:
-      - develop
+      - "develop"
 
 
 jobs:
