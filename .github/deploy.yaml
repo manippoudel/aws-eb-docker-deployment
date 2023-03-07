@@ -1,0 +1,29 @@
+name: Testing Deployment
+
+on:
+  push:
+    branches:
+      - develop
+
+
+jobs:
+  test_deployment:
+    environment: development
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+
+      - name: Generate deployment package
+        run: zip -r deploy.zip . -x '*.git*'
+
+      - name: Deploy to EB
+        uses: einaregilsson/beanstalk-deploy@v16
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_KEY_ID }}
+          application_name: "testing-docker-deployment"
+          environment_name: "Testingdockerdeployment-env"
+          version_label: "123"
+          region: ${{ secrets.AWS_REGION }}
+          deployment_package: deploy.zip
