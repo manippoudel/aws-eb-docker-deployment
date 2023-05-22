@@ -26,4 +26,4 @@ jobs:
           environment_name: "Testingdockerdeployment-env"
           version_label: "123"
           region: ${{ secrets.AWS_REGION }}
-         s deployment_package: deploy.zip
+          deployment_package: deploy.zip
