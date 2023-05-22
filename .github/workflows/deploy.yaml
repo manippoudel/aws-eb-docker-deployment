@@ -42,7 +42,7 @@ jobs:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY_ID }}
           application_name: "testing-docker-deployment"
-          environment_name: "Testingdockerdeployment-env"
+          environment_name: "Testing-docker-deployment-env"
           version_label: "test-${{ steps.format-time.outputs.replaced }}"
           region: ${{ secrets.AWS_REGION }}
           deployment_package: deploy.zip
