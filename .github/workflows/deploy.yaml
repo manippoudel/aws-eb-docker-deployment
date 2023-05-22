@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - "develop"
-
+  workflow_dispatch:
 
 jobs:
   test_deployment:
@@ -26,4 +26,4 @@ jobs:
           environment_name: "Testingdockerdeployment-env"
           version_label: "123"
           region: ${{ secrets.AWS_REGION }}
-          deployment_package: deploy.zip
+         s deployment_package: deploy.zip
